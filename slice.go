@@ -26,7 +26,7 @@ func MakeSliceUnique(s []interface{}) []interface{} {
 		case string:
 			k = v.(string)
 		default:
-			panic(errors.New("cannot support type to unique: " + reflect.TypeOf(v).Name()))
+			panic(errors.New("cannot support type to unique: " + reflect.TypeOf(v).String()))
 		}
 		if _, ok = m[k]; !ok {
 			rt = append(rt, v)
