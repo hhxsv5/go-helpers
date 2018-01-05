@@ -1,9 +1,9 @@
 package go_helpers
 
 import (
-	"github.com/kataras/iris/core/errors"
 	"reflect"
 	"strconv"
+	"errors"
 )
 
 //func GetIIMapValues(m map[int]int) []int {
