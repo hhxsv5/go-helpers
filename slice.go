@@ -22,9 +22,9 @@ func MakeSliceUnique(s interface{}) []interface{} {
 	ok := false
 	k := ""
 
-	switch  t := s.(type) {
+	switch  s.(type) {
 	case []bool:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, false; i < v.Len(); i++ {
 			tt = v.Index(i).Bool()
 			if tt {
@@ -38,7 +38,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []int:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -48,7 +48,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []int8:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -58,7 +58,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []int16:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -68,7 +68,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []int32:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -78,7 +78,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []int64:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -88,7 +88,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []uint:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -98,7 +98,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []uint8:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -108,7 +108,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []uint16:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -118,7 +118,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []uint32:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -128,7 +128,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []uint64:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
@@ -138,7 +138,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []float32:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		var (
 			tt interface{}
 			vv float32
@@ -153,7 +153,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []float64:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		var (
 			tt interface{}
 			vv float64
@@ -168,7 +168,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	case []string:
-		v := reflect.ValueOf(t)
+		v := reflect.ValueOf(s)
 		for i := 0; i < v.Len(); i++ {
 			k = v.Index(i).String()
 			if _, ok = m[k]; !ok {
