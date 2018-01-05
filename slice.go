@@ -60,7 +60,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 		for i := 0; i < v.Len(); i++ {
 			k = v.Index(i).String()
 			if _, ok = m[k]; !ok {
-				rt = append(rt, v)
+				rt = append(rt, k)
 				m[k] = true
 			}
 		}
