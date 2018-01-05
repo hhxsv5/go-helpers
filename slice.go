@@ -14,6 +14,7 @@ import (
 //	return vs
 //}
 
+//Removes duplicate values from an slice
 func MakeSliceUnique(s []interface{}) []interface{} {
 	rt := make([]interface{}, 0)
 	m := map[string]bool{}
