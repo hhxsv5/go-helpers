@@ -17,9 +17,22 @@ func TestMakeBoolSliceUnqiue(t *testing.T) {
 	}
 }
 
-func TestMakeIntSliceUnique(t *testing.T) {
-	r := []int{0, 1, 2, 3}
-	a := []int{0, 1, 2, 3, 3, 2, 1}
+func TestMakeInt32SliceUnique(t *testing.T) {
+	r := []int32{0, 1, 2, 3}
+	a := []int32{0, 1, 2, 3, 3, 2, 1}
+	b := MakeSliceUnique(a)
+	t.Log(b)
+	if len(r) != len(b) {
+		t.Error(b, r)
+	}
+	for _, v := range b {
+		t.Log(v.(int32))
+	}
+}
+
+func TestMakeInt64SliceUnique(t *testing.T) {
+	r := []int64{0, 1, 2, 3}
+	a := []int64{0, 1, 2, 3, 3, 2, 1}
 	b := MakeSliceUnique(a)
 	t.Log(b)
 	if len(r) != len(b) {

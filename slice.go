@@ -16,7 +16,6 @@ import (
 
 //Removes duplicate values from an slice
 //Return a slice of interface{}, need type assertion like use a.(int)
-//Special: slice int only be type asserted to int64
 func MakeSliceUnique(s interface{}) []interface{} {
 	rt := make([]interface{}, 0)
 	m := map[string]bool{}
@@ -38,13 +37,103 @@ func MakeSliceUnique(s interface{}) []interface{} {
 				m[k] = true
 			}
 		}
-	case []int, []int8, []int16, []int32, []int64, []uint, []uint8, []uint16, []uint32, []uint64:
+	case []int:
 		v := reflect.ValueOf(t)
 		for i, tt := 0, int64(0); i < v.Len(); i++ {
 			tt = v.Index(i).Int()
 			k = strconv.FormatInt(tt, 10)
 			if _, ok = m[k]; !ok {
-				rt = append(rt, tt)
+				rt = append(rt, int(tt))
+				m[k] = true
+			}
+		}
+	case []int8:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, int8(tt))
+				m[k] = true
+			}
+		}
+	case []int16:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, int16(tt))
+				m[k] = true
+			}
+		}
+	case []int32:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, int32(tt))
+				m[k] = true
+			}
+		}
+	case []int64:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, int64(tt))
+				m[k] = true
+			}
+		}
+	case []uint:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, uint(tt))
+				m[k] = true
+			}
+		}
+	case []uint8:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, uint8(tt))
+				m[k] = true
+			}
+		}
+	case []uint16:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, uint16(tt))
+				m[k] = true
+			}
+		}
+	case []uint32:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, uint32(tt))
+				m[k] = true
+			}
+		}
+	case []uint64:
+		v := reflect.ValueOf(t)
+		for i, tt := 0, int64(0); i < v.Len(); i++ {
+			tt = v.Index(i).Int()
+			k = strconv.FormatInt(tt, 10)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, uint64(tt))
 				m[k] = true
 			}
 		}
