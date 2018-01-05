@@ -46,13 +46,33 @@ func MakeSliceUnique(s interface{}) []interface{} {
 				m[k] = true
 			}
 		}
-	case []float32, []float64:
+	case []float32:
 		v := reflect.ValueOf(t)
-		for i, tt := 0, 0.0; i < v.Len(); i++ {
-			tt = v.Index(i).Float()
-			k = strconv.FormatFloat(tt, 'f', -1, 64)
+		var (
+			tt interface{}
+			vv float32
+		)
+		for i := 0; i < v.Len(); i++ {
+			tt = v.Index(i).Interface()
+			vv = tt.(float32)
+			k = strconv.FormatFloat(float64(vv), 'f', -1, 32)
 			if _, ok = m[k]; !ok {
-				rt = append(rt, tt)
+				rt = append(rt, vv)
+				m[k] = true
+			}
+		}
+	case []float64:
+		v := reflect.ValueOf(t)
+		var (
+			tt interface{}
+			vv float64
+		)
+		for i := 0; i < v.Len(); i++ {
+			tt = v.Index(i).Interface()
+			vv = tt.(float64)
+			k = strconv.FormatFloat(vv, 'f', -1, 64)
+			if _, ok = m[k]; !ok {
+				rt = append(rt, vv)
 				m[k] = true
 			}
 		}
@@ -66,7 +86,7 @@ func MakeSliceUnique(s interface{}) []interface{} {
 			}
 		}
 	default:
-		panic(errors.New("cannot support type to unique: " + reflect.TypeOf(s).String()))
+		panic(errors.New("cannot support type to make unique: " + reflect.TypeOf(s).String()))
 	}
 
 	return rt
