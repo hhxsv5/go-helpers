@@ -24,14 +24,15 @@ func MakeSliceUnique(s interface{}) []interface{} {
 	switch  t := s.(type) {
 	case []bool:
 		v := reflect.ValueOf(t)
-		for i := 0; i < v.Len(); i++ {
-			if v.Index(i).Bool() {
+		for i, tt := 0, false; i < v.Len(); i++ {
+			tt = v.Index(i).Bool()
+			if tt {
 				k = "0"
 			} else {
 				k = "1"
 			}
 			if _, ok = m[k]; !ok {
-				rt = append(rt, v)
+				rt = append(rt, tt)
 				m[k] = true
 			}
 		}
