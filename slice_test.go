@@ -12,6 +12,9 @@ func TestMakeBoolSliceUnqiue(t *testing.T) {
 	if len(r) != len(b) {
 		t.Error(b, r)
 	}
+	for _, v := range b {
+		t.Log(v.(bool))
+	}
 }
 
 func TestMakeIntSliceUnique(t *testing.T) {
@@ -21,6 +24,9 @@ func TestMakeIntSliceUnique(t *testing.T) {
 	t.Log(b)
 	if len(r) != len(b) {
 		t.Error(b, r)
+	}
+	for _, v := range b {
+		t.Log(v.(int64))
 	}
 }
 
@@ -32,6 +38,9 @@ func TestMakeFloat32SliceUnique(t *testing.T) {
 	if len(r) != len(b) {
 		t.Error(b, r)
 	}
+	for _, v := range b {
+		t.Log(v.(float32))
+	}
 }
 
 func TestMakeFloat64SliceUnique(t *testing.T) {
@@ -42,6 +51,9 @@ func TestMakeFloat64SliceUnique(t *testing.T) {
 	if len(r) != len(b) {
 		t.Error(b, r)
 	}
+	for _, v := range b {
+		t.Log(v.(float64))
+	}
 }
 
 func TestMakeStringSliceUnqiue(t *testing.T) {
@@ -51,5 +63,8 @@ func TestMakeStringSliceUnqiue(t *testing.T) {
 	t.Log(b)
 	if len(r) != len(b) {
 		t.Error(b, r)
+	}
+	for _, v := range b {
+		t.Log(v.(string))
 	}
 }

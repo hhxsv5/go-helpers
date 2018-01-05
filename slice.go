@@ -15,6 +15,8 @@ import (
 //}
 
 //Removes duplicate values from an slice
+//Return a slice of interface{}, need type assertion like use a.(int)
+//Special: slice int only be type asserted to int64
 func MakeSliceUnique(s interface{}) []interface{} {
 	rt := make([]interface{}, 0)
 	m := map[string]bool{}
