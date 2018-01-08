@@ -2,6 +2,11 @@ package go_helpers
 
 import "testing"
 
+func TestNowUnix(t *testing.T) {
+	unix := NowUnix()
+	t.Log(unix)
+}
+
 func TestNowDate(t *testing.T) {
 	nd := NowDate()
 	t.Log(nd)

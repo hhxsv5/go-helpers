@@ -7,6 +7,10 @@ const (
 	TimeLayoutDateTime = "2006-01-02 15:04:05"
 )
 
+func NowUnix() int64 {
+	return time.Now().Unix()
+}
+
 func NowDate() string {
 	return time.Now().Format(TimeLayoutDate)
 }
