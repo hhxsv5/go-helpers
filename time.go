@@ -15,6 +15,14 @@ func NowDateTime() string {
 	return time.Now().Format(TimeLayoutDateTime)
 }
 
+func ParseDate(dt string) (time.Time, error) {
+	return time.Parse(TimeLayoutDate, dt)
+}
+
+func ParseDateTime(dt string) (time.Time, error) {
+	return time.Parse(TimeLayoutDateTime, dt)
+}
+
 func ParseStringTime(tm, lc string) (time.Time, error) {
 	loc, err := time.LoadLocation(lc)
 	if err != nil {

@@ -12,6 +12,22 @@ func TestNowDateTime(t *testing.T) {
 	t.Log(ndt)
 }
 
+func TestParseDate(t *testing.T) {
+	tm, err := ParseDate("2018-01-08")
+	if err != nil {
+		t.Error(err)
+	}
+	t.Log(tm.String())
+}
+
+func TestParseDateTime(t *testing.T) {
+	tm, err := ParseDateTime("2018-01-08 16:34:00")
+	if err != nil {
+		t.Error(err)
+	}
+	t.Log(tm.String())
+}
+
 func TestParseStringTime(t *testing.T) {
 	tm, err := ParseStringTime("2018-01-08 14:23:00", "Asia/Shanghai")
 	if err != nil {
