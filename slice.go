@@ -182,3 +182,13 @@ func MakeSliceUnique(s interface{}) []interface{} {
 
 	return rt
 }
+
+//Find position in string slice
+func StrPos(strs []string, target string) int {
+	for k, v := range strs {
+		if v == target {
+			return k
+		}
+	}
+	return -1
+}

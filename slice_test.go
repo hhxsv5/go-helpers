@@ -81,3 +81,13 @@ func TestMakeStringSliceUnqiue(t *testing.T) {
 		t.Log(v.(string))
 	}
 }
+
+func TestStrPos(t *testing.T) {
+	strs := []string{"a1", "b2", "c3", "d4"}
+	target := "c3"
+	pos := StrPos(strs, target)
+	if pos != 2 {
+		t.Error(pos)
+	}
+	t.Log(pos)
+}
