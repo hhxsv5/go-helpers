@@ -91,3 +91,13 @@ func TestStrPos(t *testing.T) {
 	}
 	t.Log(pos)
 }
+
+func TestInt64Pos(t *testing.T) {
+	ints := []int64{-100, 100, 200, 0, 300}
+	target := int64(0)
+	pos := Int64Pos(ints, target)
+	if pos != 3 {
+		t.Error(pos)
+	}
+	t.Log(pos)
+}

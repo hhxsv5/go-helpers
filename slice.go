@@ -192,3 +192,13 @@ func StrPos(strs []string, target string) int {
 	}
 	return -1
 }
+
+//Find position in int64 slice
+func Int64Pos(ints []int64, target int64) int {
+	for k, v := range ints {
+		if v == target {
+			return k
+		}
+	}
+	return -1
+}
